@@ -1,24 +1,21 @@
 import { Template } from 'meteor/templating';
-import { Messages } from '../imports/api/messages.js';
 import './main.html';
 
 Meteor.startup(function(){
 	Session.set('Channel', 'null');
 });
 
+TempDB = new Mongo.Collection(null);
+
 const streamer = new Meteor.Streamer('chat');
-var messages;
 
 sendMessage = function(user, message) {
 	streamer.emit('message', user, message);
-	console.log('me: ' + message);
-	//addMessage(user, message) {
-		messages.push({user: user, text: message});
-	//}
+	TempDB.insert({user: user, text: message});
 };
 
 streamer.on('message', function(user, message) {
-	console.log(user + ': ' + message);
+	TempDB.insert({user: user, text: message});
 });
 
 Template.body.helpers({
@@ -28,7 +25,9 @@ Template.body.helpers({
 });
 
 Template.chat.helpers({
-	messages: [],
+	messages() {
+		return TempDB.find();
+	},
 	channel() {
 		return Session.get('Channel');
 	}

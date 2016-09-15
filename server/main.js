@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import '../imports/api/messages.js';
 
 const streamer = new Meteor.Streamer('chat');
 
