@@ -2,6 +2,13 @@
 body {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	background-color: #333333;
+	margin: 0px;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	flex-flow: column;
+	align-items: stretch;
 }
 h1 {
 	padding-left: 5%;
@@ -23,12 +30,27 @@ h2 {
 }
 .content {
 	padding: 20px;
+	padding-left: 5%;
 	color: #333333;
 	background-color: #eeeeee;
 	text-align: center;
-	vertical-align: center;
+	flex: 1 1 auto;
+
+	display: flex;
+	flex-direction: column;
+	flex-flow: column;
+	align-items: stretch;
 }
 #chat {
 	text-align: left;
-	vertical-align: top;;
+}
+#chatmessage {
+	flex: 0 1 auto;
+	align-self: flex-end;
+	width: 100%;
+}
+#messages {
+	background-color: white;
+	overflow-y: scroll;
+	flex: 1 1 auto;
 }

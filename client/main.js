@@ -7,15 +7,19 @@ Meteor.startup(function(){
 });
 
 const streamer = new Meteor.Streamer('chat');
+var messages;
 
 sendMessage = function(user, message) {
-streamer.emit('message', user, message);
-console.log('me: ' + message);
+	streamer.emit('message', user, message);
+	console.log('me: ' + message);
+	//addMessage(user, message) {
+		messages.push({user: user, text: message});
+	//}
 };
 
-  streamer.on('message', function(user, message) {
-    console.log(user + ': ' + message);
-  });
+streamer.on('message', function(user, message) {
+	console.log(user + ': ' + message);
+});
 
 Template.body.helpers({
 	notLogged() {
@@ -24,15 +28,30 @@ Template.body.helpers({
 });
 
 Template.chat.helpers({
+	messages: [],
 	channel() {
 		return Session.get('Channel');
 	}
 });
 
+Template.chat.events({
+	'submit .chatform'(event) {
+		// Prevent browsers default submit
+		event.preventDefault();
+
+		const target = event.target;
+		const msg = target.message.value;
+
+		sendMessage(Session.get('Nickname'), msg);
+
+		// Clear field
+		target.message.value = '';
+	}
+})
 
 Template.join.events({
 	'submit .join-channel'(event) {
-		// Prevent broswser broser default submit
+		// Prevent browsers default submit
 		event.preventDefault();	
 
 		// Get values from input fields

@@ -4,7 +4,7 @@
 
 <body>
   <h1>Anochat</h1>
-  <h2>The only truely anonymous chat.</h2>
+  <h2>The only truly anonymous chat.</h2>
   {{#if notLogged}}
     {{> join}}
   {{else}}
@@ -25,5 +25,16 @@
 <template name="chat">
   <div class="content" id="chat">
     <h3>Channel: {{channel}}</h3>
+    <div id="messages">
+      {{#each messages}}
+        {{> message}}
+      {{/each}}
+    </div>
+    <form class="chatform">
+      <input type="text" name="message" class="textfield" id="chatmessage"/>
+    </form>
   </div>
+</template>
+<template name="message">
+  <li>{{text}}</li>
 </template>
