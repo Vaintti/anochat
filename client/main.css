@@ -14,13 +14,6 @@ h2 {
 	line-height: 60px;
 	padding-left: 5%;
 }
-.form {
-	padding: 20px;
-	color: #333333;
-	background-color: #eeeeee;
-	text-align: center;
-	vertical-align: center;
-}
 .textfield {
 	font-size: 1.5em;
 }
@@ -28,8 +21,14 @@ h2 {
 	min-height: 2em;
 	min-width: 10em;
 }
-.chat {
+.content {
 	padding: 20px;
 	color: #333333;
 	background-color: #eeeeee;
+	text-align: center;
+	vertical-align: center;
+}
+#chat {
+	text-align: left;
+	vertical-align: top;;
 }

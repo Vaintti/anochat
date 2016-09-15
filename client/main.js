@@ -18,6 +18,12 @@ console.log('me: ' + message);
   });
 
 Template.body.helpers({
+	notLogged() {
+		return Session.equals('Channel', 'null')
+	}
+});
+
+Template.chat.helpers({
 	channel() {
 		return Session.get('Channel');
 	}
