@@ -1,0 +1,35 @@
+/* CSS declarations go here */
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #333333;
+}
+h1 {
+	padding-left: 5%;
+	color: white;
+}
+h2 {
+	background-color: #aaaaaa;
+	color: white;
+	height: 60px;
+	line-height: 60px;
+	padding-left: 5%;
+}
+.form {
+	padding: 20px;
+	color: #333333;
+	background-color: #eeeeee;
+	text-align: center;
+	vertical-align: center;
+}
+.textfield {
+	font-size: 1.5em;
+}
+.button {
+	min-height: 2em;
+	min-width: 10em;
+}
+.chat {
+	padding: 20px;
+	color: #333333;
+	background-color: #eeeeee;
+}

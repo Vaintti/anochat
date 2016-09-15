@@ -1,0 +1,23 @@
+<head>
+  <title>Anochat</title>
+</head>
+
+<body>
+  <h1>Anochat</h1>
+  <h2>The only true anonymous chat.</h2>
+  {{> join}}
+  {{> channel}}
+</body>
+
+<template name="join">
+  <div class="form">
+    <h3>Join a channel.</h3>
+    <form class="join-channel">
+      <input type="text" name="name" placeholder="Nickname" class="textfield"/>
+      <input type="text" name="channel" placeholder="Channel" class="textfield"/>
+      <button class="button">Join</button>
+    </form>
+  </div>
+</template>
+<template name="channel">
+</template>
