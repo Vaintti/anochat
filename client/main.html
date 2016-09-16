@@ -4,7 +4,7 @@
 
 <body>
   <h1>Anochat</h1>
-  <h2>The only truly anonymous chat.</h2>
+  <h2>The truly anonymous chat.</h2>
   {{#if notLogged}}
     {{> join}}
   {{else}}
@@ -16,12 +16,13 @@
   <div class="content">
     <h3>Join a channel.</h3>
     <form class="join-channel">
-      <input type="text" name="name" placeholder="Nickname" class="textfield"/>
+      <input type="text" name="name" placeholder="Nickname" class="textfield" id="namefield" autofocus/>
       <input type="text" name="channel" placeholder="Channel" class="textfield"/>
       <button class="button">Join</button>
     </form>
   </div>
 </template>
+
 <template name="chat">
   <div class="content" id="chat">
     <h3>Channel: {{channel}}</h3>
@@ -35,6 +36,7 @@
     </form>
   </div>
 </template>
+
 <template name="message">
   <p>{{user}}: {{text}}</p>
 </template>
